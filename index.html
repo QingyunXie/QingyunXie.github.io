@@ -1,610 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>谢晴韵 202121220078 实验10</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>随机数&抽奖助手</title>
+	<link rel="stylesheet" type="text/css" href="css/page1.css" media="screen and (min-width:980px)">
+	<link rel="stylesheet" type="text/css" href="css/page1_m.css" media="screen and (max-width:980px) and (min-width:320px)">
+	<link rel="stylesheet" type="text/css" href="css/page2.css" media="screen and (min-width:980px)">
+	<link rel="stylesheet" type="text/css" href="css/page2_m.css" media="screen and (max-width:980px) and (min-width:320px)">
+	<link rel="stylesheet" type="text/css" href="css/page3.css" media="screen and (min-width:980px)">
+	<link rel="stylesheet" type="text/css" href="css/page3_m.css" media="screen and (max-width:980px) and (min-width:320px)">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-
 <body>
-    <div class="menu-bar">
-        <img src="image/logo.png">
-        <div class="menu">
-            <div class="menu-item">
-                <h4>ABOUT</h4>
-                <h5>MY METHODとは</h5>
-            </div>
-            <div class="menu-item">
-                <h4>CONCEPT</h4>
-                <h5>コンセプト</h5>
-            </div>
-            <div class="menu-item">
-                <h4>HOW TO</h4>
-                <h5>使い方</h5>
-            </div>
-            <div class="menu-item">
-                <h4>COMMENT</h4>
-                <h5>コメント</h5>
-            </div>
-            <div class="menu-item">
-                <h4>ITEM</h4>
-                <h5>商品</h5>
-            </div>
-            <div class="menu-item">
-                <h4>FUND</h4>
-                <h5>取り組み</h5>
-            </div>
-        </div>
-        <button>👜　BUY</button>
-    </div>
-    <div class="main">
-        <div class="main-my_method">
-            <div class="main-my_method-left">
-                <div class="main-my_method-left-top">
-                    <h1>ココロ。</h1>
-                    <h1>無為自然。</h1>
-                    <h1>ありのまま。</h1>
+	<div class="page page-1">
+		<div class="title">欢迎来到抽奖助手</div>
+		<div class="mainbox">
+			<div class="random">
+				<li>随机数生成器：如果你想选择一个数字而不知道选什么，用随机数生成器帮你生成一个吧！</li>
+				<a href="page3.html" class="btn-3 k2 animate__animated animate__flash">随机数生成器</a>
+				<img src="img/page1_img2.jpg" />
+			</div>
+			<div class="raffle">
+				<li>抽奖助手：任何形式的抽奖都可用抽奖助手进行！</li>
+				<a href="#" class="btn k1" onclick="slidePage()">抽奖助手</a>
+				<img src="img/page1_img3.jpg" />
+			</div>
+		</div>
+		<img src="img/page1_bac1.png" />
+	</div>
+
+	<div class="page page-2">
+		<!-- 抽奖池 -->
+		<div class="draw">
+			<!-- 奖池 -->
+			<div class="draw-pond">
+				<button id="d-item" class="item">iPhone X</button>
+				<div class="jc">奖池</div>
+				<div class="explain">待抽取的奖品将会呈现在这里</div>
+			</div>
+			<!-- 设置抽奖属性 -->
+			<div class="attribute">
+				<input class="new" placeholder="New">
+				<button class="add">+</button>
+				<button class="lower">-</button>
+			</div>
+			<div class="set">
+				<input class="count" placeholder="数目">
+                <div class="repbox">
+                    <div id="rep" class="pick" onclick="pickUp()"></div>
+                    <div class="repeat">重复</div>
                 </div>
-                <div class="main-my_method-left-bot">
-                    <h4>『MY METHOD』は、あなたがずっと信じてきた</h4>
-                    <h4>自分らしく前向きな生き方を叶える練り香水ブランドです。</h4>
-                </div>
+			</div>
+			<!-- <button class="bt">退出</button> -->
+
+			<a href="#" class="back-btn" onclick="slidePage()">Back</a>
+		</div>
+		<!-- 抽出结果 -->
+		<div class="outcome">
+			<!-- 已抽出 -->
+			<div id="resBox"class="extracted">
+				<div class="jc1">结果</div>
+				<div class="bz1">已抽出的奖品将会呈现在这里</div>
+			</div>
+            <div class="butBox">
+                <button class="eliminate">清除</button>
+                <button class="extract">抽取</button>
             </div>
-            <div class="main-my_method-img-l">
-                <img src="image/img-lst__visual01.jpg">
-            </div>
-            <div class="main-my_method-img-r">
-                <img src="image/img-lst__visual02.jpg">
-            </div>
-            <div class="main-my_method-right">
-                <div class="main-my_method-right-txt">
-                    <h5 class="en-0">MY METHOD is a solid perfume</h5>
-                    <h5 class="en-1">that will help you achieve</h5>
-                    <h5 class="en-2">the positive way of life as you are.</h5>
-                </div>
-                <img src="image/img-lst__visual03.jpg">
-            </div>
-        </div>
-        <img src="image/background.png">
-        <div class="main-buy">
-            <button class="main-buy-but01">限定スペシャルセット</button>
-            <h4>通常３個で6,600円が、特別価格3,960円（税込）に。</h4>
-            <button class="main-buy-but02">👜 購入する</button>
-        </div>
-        <div class="main-plg">
-            <div class="main-plg-l">
-                <div class="main-plg-l-t">
-                    <h1>ココロ。</h1>
-                    <h1>無為自然。</h1>
-                    <h1>ありのまま。</h1>
-                </div>
-                <img src="image/prologue-lst__visual01.jpg">
-            </div>
-            <div class="main-plg-m">
-                <div class="main-plg-m-p">
-                    <h5>そっとココロに聞いてみた。</h5>
-                    <h5>いちばんここちよい自分って、どこにいる?</h5>
-                </div>
-                <div class="main-plg-m-p">
-                    <h5>その答えは、とてもシンプル。 </h5>
-                    <h5>無為自然。あるがままに。ありのままに。</h5>
-                    <h5>いつだって、そこにある。</h5>
-                </div>
-                <div class="main-plg-m-p">
-                    <h5>METHOD ──。 それはギリシャ語の</h5>
-                    <h5>「Methods(道に従って進む)」を語源とする、</h5>
-                    <h5>前向きで素直に生きるための言葉。</h5>
-                </div>
-                <div class="main-plg-m-p">
-                    <h5>この香りをまとうたびに、</h5>
-                    <h5>何度だって新しい自分に気づくはず。</h5>
-                    <h5>ずっと信じていた自分に出会うはず。</h5>
-                </div>
-                <div class="main-plg-m-p">
-                    <h5>そんな瞬間を、多くの人に届けたいから。</h5>
-                    <h5>MY METHOD.</h5>
-                </div>
-            </div>
-            <div class="main-plg-r">
-                <img src="image/prologue-lst__visual02_1.jpg">
-            </div>
-        </div>
-    </div>
-    <div class="about">
-        <div class="about-t">
-            <div class="about-t-l">
-                <h3>ABOUT</h3>
-                <h5>MY METHODとは</h5>
-            </div>
-            <div class="about-t-r">
-                <h3>香水のプロフェッショナルが、</h3>
-                <h3>香り、成分、コンセプトのすべてに</h3>
-                <h3>こだわり抜いてつくった、</h3>
-                <h3>自分をより自分らしく表現できるフレグランスです。</h3>
-                <p>約230万人のユーザーに対して、1,400ブランド、45,000点以上の香水を扱い、仕入れから販売までの全工程を自社で手がけてきた“香水のプロ”がつくり出した、ユニセックスで使えるオリジナル練り香水ブランドです。</p>
-            </div>
-        </div>
-        <div class="about-m">
-            <img src="image/about-voice__visual.jpg">
-            <div class="about-m-voice">
-                <div class="about-m-voice-title">
-                    <h4>開発者の声</h4>
-                </div>
-                <div class="about-m-voice-body">
-                    <h3>自分だけの感性で、香りの世界を楽しんでほしいから。</h3>
-                    <p>自分にとって本当にベストな香りを纏っている人はどれくらいいるのか。世の中に出回る多くが、“万人受け”を狙った定番商品ではないのか。そんな思いから、より気軽に、自分だけの最高の香りを見つけてもらいたいと願い、『MY METHOD』の開発を進めてきました。</p>
-                </div>
-                <div class="about-m-voice-bot">
-                    <p>日本フレグランス協会認定フレグランスセールススペシャリスト</p>
-                    <h4>Sayaka Hamana</h4>
-                </div>
-            </div>
-        </div>
-        <div class="about-img_gallery">
-            <h3>IMAGE GALLERY</h3>
-            <div class="about-img_gallery-img">
-                <img src="image/about-gallery01.jpg">
-                <img src="image/about-gallery02.jpg">
-                <img src="image/about-gallery03.jpg">
-                <img src="image/about-gallery04.jpg">
-                <img src="image/about-gallery05.jpg">
-                <img src="image/about-gallery06.jpg">
-                <img src="image/about-gallery07.jpg">
-            </div>
-        </div>
-    </div>
-    <div class="concept">
-        <div class="concept-title">
-            <h3>CONCEPT</h3>
-            <h5>コンセプト</h5>
-        </div>
-        <div class="concept-list">
-            <div class="concept-list-item">
-                <div class="concept-list-item-title">
-                    <div class="concept-list-1-title-num">
-                        <h5>01</h5>
-                    </div>
-                    <h3>香水のプロフェッショナルが辿り着いたひとつの答え。</h3>
-                </div>
-                <p>トレンドやユーザーのニーズなどを知り尽くした香水のプロが、「香り」そのものへのこだわりはもちろん、ベタつかず、それでいて高い保湿力をキープできるよう、試行錯誤を重ねることで出来上がりました。</p>
-                <button>株式会社ベルモについて</button>
-            </div>
-            <div class="concept-list-item-mid">
-                <div class="concept-list-item-title">
-                    <div class="concept-list-2-title-num">
-                        <h5>02</h5>
-                    </div>
-                    <h3>"内側のファッション性"を叶えるために。</h3>
-                </div>
-                <p>香りをまとうことで、自分らしさを表現し、自信を持って前向きに生きる。それがMY METHODが提供する“内側のファッション性”です。またレイヤリングによって、他の誰とも違うオリジナリティも追求できます。</p>
-                <button>レイヤリングとは？</button>
-            </div>
-            <div class="concept-list-item">
-                <div class="concept-list-item-title">
-                    <div class="concept-list-3-title-num">
-                        <h5>03</h5>
-                    </div>
-                    <h3>誰もが使いたくなるさまざまな工夫。</h3>
-                </div>
-                <p>国内生産で品質管理を徹底し、アルコールフリー、人工着色剤不使用など、成分にもこだわりました。パッケージもユニセックスなデザインで、年齢や性別を問わず、多くの方に香りを楽しんでいただけます。</p>
-                <div class="concept-list-3-detail">
-                    <h4>👤こういう方にオススメ</h4>
-                    <p>やさしい柔軟剤や石鹸の香りが好きな方 / ナチュラルにふんわり香らせたい方 / 香水独特の強い香りが苦手な方 / 香水を使うとアルコールでかぶれてしまう方 / 周囲にバレずに香水を使いたい方 / ピンポイントで少量を使いたい方 / 強すぎる香りで周りに迷惑をかけたくない方</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="how_to">
-        <div class="how_to-title">
-            <h3>HOW TO</h3>
-            <h5>使い方</h5>
-        </div>
-        <div class="how_to-gallery">
-            <div class="how_to-gallery-item">
-                <img src="image/howto-gallery01.jpg">
-                <h5>手首に。</h5>
-            </div>
-            <div class="how_to-gallery-item">
-                <img src="image/howto-gallery02.jpg">
-                <h5>首元に。</h5>
-            </div>
-            <div class="how_to-gallery-item">
-                <img src="image/howto-gallery03.jpg">
-                <h5>耳の後ろに。</h5>
-            </div>
-            <div class="how_to-gallery-item">
-                <img src="image/howto-gallery04.jpg">
-                <h5>ネイルケアに。</h5>
-            </div>
-            <div class="how_to-gallery-item">
-                <img src="image/howto-gallery05.jpg">
-                <h5>うなじに。</h5>
-            </div>
-            <div class="how_to-gallery-item">
-                <img src="image/howto-gallery06.jpg">
-                <h5>髪の毛に。</h5>
-            </div>
-        </div>
-        <div class="how_to-question">
-            <div class="how_to-question-title">
-                <h3>オススメの使用シーン</h3>
-            </div>
-            <h4>目覚めに / 大切なデートの時に / 会社でデスクの上で / 旅先、バケーションのお供に /</h4>
-            <h4>テレワークのリフレッシュに / マスクに少量つけ香らせる / 通勤や通学に</h4>
-        </div>
-        <div class="how_to-question">
-            <div class="how_to-question-title">
-                <h3>レイヤリングとは?</h3>
-            </div>
-            <h4>「レイヤリング」とは、ふたつ以上の香水を組み合わせて、“重ねづけ”すること。</h4>
-            <h4>香りの合わせ方や配合の分量などを細かく調整して、自分だけの香りを見つけることができます。</h4>
-        </div>
-        <div class="how_to-guide">
-            <img src="image/howto-guide__visual.jpg">
-            <div class="how_to-guide-detail">
-                <h3>レイヤリングの方法</h3>
-                <div class="how_to-guide-detail-body">
-                    <div class="how_to-guide-detail-body-step_no">
-                        <h3>01</h3>
-                        <h3>02</h3>
-                        <h3>03</h3>
-                    </div>
-                    <div class="how_to-guide-detail-body-step">
-                        <div class="how_to-guide-detail-body-steps">
-                            <p>香りの違う複数の香水を、同じ指で適量救いとり、混ぜ合わせるイメージで手首や耳の後ろなどにつけていくのが、一般的なレイヤリングの手法になります。</p>
-                        </div>
-                        <div class="how_to-guide-detail-body-steps-mid">
-                            <p>右の手首と左の手首や、右の耳の後ろと左の耳の後ろ、さらに髪の毛と首元など、異なる場所にそれぞれ違う香りをつけることで、レイヤリングを楽しむこともできます。</p>
-                        </div>
-                        <div class="how_to-guide-detail-body-steps">
-                            <p>さらにもう一つの方法としては、自分ひとりで完結させるのではなく、パートナーやお友達と違う香りをつけることで、より魅力的な香りを作り出すという方法もあります。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="how_to-groups">
-            <h3>レイヤリングパターン</h3>
-            <div class="how_to-groups-all">
-                <div class="how_to-groups-l">
-                    <div class="how_to-group">
-                        <div class="how_to-group-top">
-                            <div class="set">
-                                <img src="image/p-pkg-tea.png">
-                                <div class="set-txt">
-                                    <h4>シーゾナル</h4>
-                                    <h4>アフタヌーンティー</h4>
-                                </div>
-                            </div>
-                            <h1>X</h1>
-                            <div class="set">
-                                <img src="image/p-pkg-white.png">
-                                <div class="set-txt">
-                                    <h4>ウォッシュド</h4>
-                                    <h4>ホワイトシャツ</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <p>穏やかで使いやすい印象になるので、仕事中にもオススメ。「ウォッシュドホワイトシャツ」を多めにすれば清潔な印象を、「シーゾナルアフタヌーンティー」が多めだと、ゆったりした雰囲気を楽しめます。</p>
-                    </div>
-                    <div class="how_to-group-bot">
-                        <div class="how_to-group-top">
-                            <div class="set">
-                                <img src="image/p-pkg-tea.png">
-                                <div class="set-txt">
-                                    <h4>シーゾナル</h4>
-                                    <h4>アフタヌーンティー</h4>
-                                </div>
-                            </div>
-                            <h1>X</h1>
-                            <div class="set">
-                                <img src="image/p-pkg-lemon.png">
-                                <div class="set-txt">
-                                    <h4>レモンガーデン</h4>
-                                    <h4>ブリーズ</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <p>レモンティーのようなスッキリとしたお茶の香りがつくり出され、最後にはお茶の残り香を感じられます。分量は『５：５』で合わせるのがちょうど良いバランス。後はそれぞれのお好みで調整してください。</p>
-                    </div>
-                </div>
-                <div class="how_to-groups-r">
-                    <div class="how_to-group">
-                        <div class="how_to-group-top">
-                            <div class="set">
-                                <img src="image/p-pkg-white.png">
-                                <div class="set-txt">
-                                    <h4>ウォッシュド</h4>
-                                    <h4>ホワイトシャツ</h4>
-                                </div>
-                            </div>
-                            <h1>X</h1>
-                            <div class="set">
-                                <img src="image/p-pkg-lemon.png">
-                                <div class="set-txt">
-                                    <h4>レモンガーデン</h4>
-                                    <h4>ブリーズ</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <p>「ウォッシュドホワイトシャツ」のお花の香りを、「レモンガーデンブリーズ」の柑橘の香りでスッキリまとまります。「レモンガーデンブリーズ」を多めにすると、より爽やかになるので、特に夏にオススメ。</p>
-                    </div>
-                    <div class="how_to-group-bot">
-                        <div class="how_to-group-top-1">
-                            <div class="set-1">
-                                <img src="image/p-pkg-tea.png">
-                                <div class="set-txt-1">
-                                    <h4>シーゾナル</h4>
-                                    <h4>アフタヌーンティー</h4>
-                                </div>
-                            </div>
-                            <h1>X</h1>
-                            <div class="set-1">
-                                <img src="image/p-pkg-white.png">
-                                <div class="set-txt-1">
-                                    <h4>ウォッシュド</h4>
-                                    <h4>ホワイトシャツ</h4>
-                                </div>
-                            </div>
-                            <h1>X</h1>
-                            <div class="set-1">
-                                <img src="image/p-pkg-lemon.png">
-                                <div class="set-txt-1">
-                                    <h4>レモンガーデン</h4>
-                                    <h4>ブリーズ</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <p>柑橘の香りの奥に、雅やかなお茶の香りと、穏やかで清らかなホワイトフローラルが調和します。３つを重ねることで香りが強くなるので、ひとつやふたつだけでは物足りなさを感じる人にもオススメです。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>
-    <div class="comment">
-        <div class="comment-title">
-            <h3>COMMENT</h3>
-            <h5>コメント</h5>
-        </div>
-        <div class="comment-gallery">
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery01.jpg">
-                <h5>@shuffleramenさまの投稿</h5>
-            </div>
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery02.jpg">
-                <h5>@chappixx_さまの投稿</h5>
-            </div>
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery03.jpg">
-                <h5>@mamasizuさまの投稿</h5>
-            </div>
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery04.jpg">
-                <h5>@bibisama2021さまの投稿</h5>
-            </div>
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery05.jpg">
-                <h5>@naidyyyyさまの投稿</h5>
-            </div>
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery06.jpg">
-                <h5>@pinkdazlos1210さまの投稿</h5>
-            </div>
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery07.jpg">
-                <h5>@hoshina_momoさまの投稿</h5>
-            </div>
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery08.jpg">
-                <h5>@amonamon1783さまの投稿</h5>
-            </div>
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery09.jpg">
-                <h5>@chieee_25さまの投稿</h5>
-            </div>
-            <div class="comment-gallery-item">
-                <img src="image/comment-gallery10.jpg">
-                <h5>@x1007_gramさまの投稿</h5>
-            </div>
-        </div>
-    </div>
-    <div class="item">
-        <div class="item-title">
-            <h3>ITEM</h3>
-            <h5>商品</h5>
-        </div>
-        <div class="item-voice">
-            <div class="item-voice-visual">
-                <img src="image/item-voice__visual01__y.jpg">
-                <img src="image/item-voice__visual02__y.jpg">
-                <img src="image/item-voice__visual03__y.jpg">
-            </div>
-            <div class="item-voice-box">
-                <div class="item-voice-title-l">
-                    <h3>レモンガーデンブリーズ</h3>
-                    <h5>CITRUS＆HERBAL METHOD</h5>
-                </div>
-                <div class="item-voice-detail">
-                    <h4>レモンをおもいっきり絞ったようなフレッシュな香り</h4>
-                    <p>香水のプロが提唱する〈シトラス＆ハーバルメソッド〉。柔らかい風に包まれながらレモンが実る庭園をゆっくりと散策しているような、すっきりとした香り。爽やかな印象なので、ユニセックスで使えて、暑い時期にもオススメです。</p>
-                </div>
-                <button>単品の購入はこちら></button>
-            </div>
-        </div>
-        <div class="item-voice">
-            <div class="item-voice-visual">
-                <img src="image/item-voice__visual01__w.jpg">
-                <img src="image/item-voice__visual02__w.jpg">
-                <img src="image/item-voice__visual03__w.jpg">
-            </div>
-            <div class="item-voice-box">
-                <div class="item-voice-title-w">
-                    <h3>ウォッシュドホワイトシャツ</h3>
-                    <h5>MUGUET＆SOLEIL METHOD</h5>
-                </div>
-                <div class="item-voice-detail">
-                    <h4>照りつける太陽の下、洗い立てのシャツをイメージした香り。</h4>
-                    <p>香水のプロが提唱する〈ミュゲ＆ソレイユメソッド〉。風に揺れる洗い立ての真っ白いシャツをイメージし、ミュゲ（スズラン）をキーとして構築し直しました。上質で清潔感のある柔軟剤のような香りで、女性のみならず男性でも使いやすく仕上がっています。</p>
-                </div>
-                <button>単品の購入はこちら></button>
-            </div>
-        </div>
-        <div class="item-voice">
-            <div class="item-voice-visual">
-                <img src="image/item-voice__visual01__t.jpg">
-                <img src="image/item-voice__visual02__t.jpg">
-                <img src="image/item-voice__visual03__t.jpg">
-            </div>
-            <div class="item-voice-box">
-                <div class="item-voice-title-t">
-                    <h3>シーゾナルアフタヌーンティー</h3>
-                    <h5>RELAXING＆BREAK METHOD</h5>
-                </div>
-                <div class="item-voice-detail">
-                    <h4>高級ホテルで味わう、ティータイムの香り</h4>
-                    <p>香水のプロが提唱する〈リラクシング＆ブレイク メソッド〉。高級ホテルのロビーラウンジで味わうアフタヌーンティーをイメージし、男女を問わず、季節の移ろいとともに変化しゆく香りを楽しんでほしいという想いを込めました。</p>
-                </div>
-                <button>単品の購入はこちら></button>
-            </div>
-        </div>
-    </div>
-    <div class="fund">
-        <div class="fund-title">
-            <h3>FUND</h3>
-            <h5>取り組み</h5>
-        </div>
-        <div class="fund-undertitle">
-            <h3>『世界こどもワクチン基金』との協業にて、</h3>
-            <h3>MY METHOD購入1つにつき、1ワクチン相当を寄付します。</h3>
-        </div>
-        <div class="fund-wrap">
-            <div class="fund-wrap-img">
-                <img src="image/fund-wrap__visual.jpg">
-                <p>1日4000人の子どもたちが、ワクチンがあれば防げる病気で命を落としています。</p>
-            </div>
-            <div class="fund-wrap-detail">
-                <h2>世界こどもワクチン基金とは?</h2>
-                <p>開発途上国の子どもたちに対して、ワクチンの提供を中心とした保健医療全般を援助する国際協力団体です。先進国では、乳児期から学齢期に学校や病院で予防接種を受けて病気から守られ、大人へ成長します。しかし世界には、予防接種を受けることができない子どもたちが大勢います。私たちは、状況がもっとも深刻なアフリカの中でも、特にマダガスカルの子どもたちを主に、ワクチンを中心に必要な保健医療全般を援助しています。</p>
-                <button>公式サイト></button>
-            </div>
-        </div>
-    </div>
-    <div class="buy">
-        <div class="buy-title">
-            <h3>BUY</h3>
-            <h5>購入する</h5>
-        </div>
-        <div class="buy-voice">
-            <img src="image/buy-voice__visual.jpg">
-            <div class="buy-voice-body">
-                <div class="buy-voice-body-item-list">
-                    <h2>MY METHOD 限定スペシャルセット（送料無料）</h2>
-                    <div class="buy-voice-body-item">
-                        <h5>レモンガーデンブリーズ</h5>
-                        <h5>12g</h5>
-                    </div>
-                    <div class="buy-voice-body-item">
-                        <h5>ウォッシュド</h5>
-                        <h5>ホワイトシャツ</h5>
-                        <h5>12g</h5>
-                    </div>
-                    <div class="buy-voice-body-item">
-                        <h5>シーゾナルアフタヌーンティー</h5>
-                        <h5>12g</h5>
-                    </div>
-                </div>
-                <div class="buy-voice-body-buy">
-                    <div class="buy-voice-body-price">
-                        <h3>\</h3>
-                        <h1>3,960</h1>
-                        <h4>(税込)</h4>
-                    </div>
-                    <button>👜限定スペシャルセットを購入する</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="blemo">
-        <div class="blemo-top">
-            <div class="blemo-contacts">
-                <img src="image/blemo__logo.png">
-                <h5>株式会社ベルモ</h5>
-                <div class="blemo-contacts-ad">
-                    <h5>〒252-0303</h5>
-                    <h5>神奈川県相模原市南区相模大野８丁目４-１０</h5>
-                    <h5>サウスフロント相模大野ビル3-5F</h5>
-                </div>
-                <p>Google MAP</p>
-                <div class="blemo-contacts-tf">
-                    <h5>TEL : 042-767-2722</h5>
-                    <h5>FAX : 042-767-2755</h5>
-                </div>
-            </div>
-            <div class="blemo-my_method">
-                <div class="blemo-my_method-menu">
-                    <div class="blemo-my_method-menu-p">
-                        <h4>ABOUT</h4>
-                        <h4>CONCEPT</h4>
-                        <h4>HOW TO</h4>
-                    </div>
-                    <div class="blemo-my_method-menu-p">
-                        <h4>COMMENT</h4>
-                        <h4>ITEM</h4>
-                        <h4>FUND</h4>
-                    </div>
-                </div>
-                <div class="blemo-my_method-want">
-                    <h5>スタッフ募集</h5>
-                    <h5>株式会社ベルモ 公式サイト</h5>
-                </div>
-                <p>PRIVACY POLICY</p>
-                <p>All Rights Reserved c belmo Inc</h5>
-            </div>
-            <div class="blemo-share">
-                <div class="blemo-share-part">
-                    <div class="blemo-share-part-list">
-                        <h4>OUTDOOR SNS</h4>
-                        <div class="blemo-share-part-list-item">
-                            <h5>Instagram</h5>
-                            <h5>Twitter</h5>
-                            <h5>Facebook</h5>
-                        </div>
-                    </div>
-                    <div class="blemo-share-part-list">
-                        <h4>FRAGRANCE SNS</h4>
-                        <div class="blemo-share-part-list-item">
-                            <h5>Instagram</h5>
-                            <h5>Twitter</h5>
-                            <h5>Facebook</h5>
-                        </div>
-                    </div>
-                    <div class="blemo-share-part-list">
-                        <h4>OTHER</h4>
-                        <div class="blemo-share-part-list-item">
-                            <h5>Youtube</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="blemo-share-item">
-                    <h4>SHARE ON</h4>
-                    <button><img class="twi" src="image/twitter__logo.png"></button>
-                    <button>ｆ</button>
-                </div>
-            </div>
-        </div>
-        <div class="blemo-store">
-            <img src="image/store-img01.png">
-            <div class="blemo-store-mid">
-                <img src="image/blemo__logo.png">
-                <button>🛒ONLINE STORE</button>
-            </div>
-            <img src="image/store-img02.png">
-        </div>
-    </div>
+		</div>
+	</div>
+
+
+
+
+	<script type="text/javascript">
+		function slidePage() {
+			document.querySelector('.page-1').classList.toggle('active');
+			document.querySelector('.page-2').classList.toggle('active');
+		}
+		function pickUp(){
+			document.querySelector('.pick').classList.toggle('active')
+		}
+	</script>
+	<script type="text/javascript" src="js/jquery-3.6.4.min.js"></script>
+	<script type="text/javascript" src="js/randomNum.js"></script>
+	<script type="text/javascript" src="js/gacha.js"></script>
 </body>
-
 </html>
-
